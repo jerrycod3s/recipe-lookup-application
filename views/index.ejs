@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taco Creator</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <main>
+        <h1>Super Simple Taco Recipes 🌮</h1>
+        
+        <form action="/recipe-lookup" method="post">
+            <button type="submit" class="ingredient" value="Chicken" name="ingredient">🍗 <span class="caption">chicken</span></button>
+            <button type="submit" class="ingredient" value="Beef" name="ingredient">🥩 <span class="caption">beef</span></button>
+            <button type="submit" class="ingredient" value="Fish" name="ingredient">🐟 <span class="caption">fish</span></button>
+        </form>
+        <% if (recipe) { %>
+            <p class="title"><%= recipe.name %></p>
+            <label for="ingredients-list">Ingredients:</label>
+            <div id="recipe">
+                <ul id="ingredients-list">
+                    <li><%= recipe?.ingredients?.protein?.name %>, <%= recipe?.ingredients?.protein?.preparation %></li>
+                    <% recipe.ingredients.toppings.forEach((topping) => { %>
+                        <li><%= recipe?.ingredients?.salsa?.name %></li>
+                        <li> <%= topping?.quantity %> of <%= topping?.name  %></li>
+                    <% }) %>
+                </ul>
+            </div>
+        <% } else { %>
+            <p class="title"> Pick your favorite protein 👆</p>
+        <% } %>
+    </main>
+</body>
+</html>
