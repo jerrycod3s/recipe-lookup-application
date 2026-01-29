@@ -7,7 +7,7 @@ This app reads recipe data from a local JSON file and render results using EJS t
 
 Live Demo
 
-link:
+https://recipe-lookup-application.onrender.com/
 
 ---
 
