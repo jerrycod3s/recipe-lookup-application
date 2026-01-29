@@ -1,10 +1,9 @@
 import fs from "fs/promises";
-import bodyParser from "body-parser";
 
 async function loadData() {
     try {
-        const response = await fs.readFile("./data/recipes.json", "utf-8");
-        const data = await JSON.parse(response); 
+        const response = await fs.readFile("../data/recipes.json", "utf-8");
+        const data = JSON.parse(response); 
 
         return data
     } catch (error) {
