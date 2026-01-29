@@ -1,8 +1,10 @@
 import fs from "fs/promises";
 
+const filePath = new URL("../data/recipes.json", import.meta.url);
+
 async function loadData() {
     try {
-        const response = await fs.readFile("../data/recipes.json", "utf-8");
+        const response = await fs.readFile(filePath, "utf-8");
         const data = JSON.parse(response); 
 
         return data
